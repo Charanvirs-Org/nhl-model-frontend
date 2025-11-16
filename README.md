@@ -1,73 +1,128 @@
-# React + TypeScript + Vite
+# NHL Stats Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for analyzing and comparing NHL team statistics with real-time data from Natural Stat Trick.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Single Team Analysis** - Analyze individual NHL team statistics including daily trends, league averages, and season-long performance metrics
+- **Team Comparison** - Compare side-by-side statistics between two NHL teams
+- **Multiple Strength Modes** - View metrics across 5v5 Even Strength and All Strength situations
+- **Real-Time Data** - Daily-updated data integration for the most current analytics
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- **React** 19.2.0 - UI framework
+- **TypeScript** 5.9.3 - Type-safe JavaScript
+- **Vite** 7.2.2 - Fast build tool and dev server
+- **React Router** 7.9.6 - Client-side routing
+- **TanStack React Query** 5.90.10 - Server state management and caching
+- **Tailwind CSS** 3.4.18 - Utility-first CSS framework
+- **ESLint** 9.39.1 - Code linting
 
-## Expanding the ESLint configuration
+### Backend
+- **API Server** - https://farlo-nhl-model.up.railway.app/api/
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── api/                 # API integration layer with React Query hooks
+├── components/          # Reusable React components
+│   ├── NavBar/
+│   ├── SingleTeamForm/
+│   ├── TwoTeamForm/
+│   └── StatsChart/
+├── layouts/             # Layout wrappers
+│   └── MainLayout.tsx
+├── pages/               # Page-level components
+│   ├── Home/
+│   ├── SingleTeam/
+│   └── CompareTeams/
+├── types/               # TypeScript type definitions
+├── App.tsx              # Main router
+├── main.tsx             # React entry point
+└── index.css            # Global styles
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
+- Node.js 18+ and npm
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd NHL-Model-Client
 ```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables by checking `.env` file for required configuration
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Build
+
+Create a production build:
+```bash
+npm run build
+```
+
+### Lint
+
+Check code quality:
+```bash
+npm run lint
+```
+
+### Preview
+
+Preview the production build locally:
+```bash
+npm run preview
+```
+
+## API Endpoints
+
+The application connects to the following API endpoints:
+
+- `GET /api/team/:teamName` - Fetch statistics for a single team
+- `GET /api/compare/:team1/:team2` - Fetch comparison data for two teams
+
+## Pages
+
+### Home (`/`)
+Landing page with an overview of features and call-to-action links to the analysis tools.
+
+### Single Team (`/single-team`)
+Analyze detailed statistics for an individual NHL team.
+
+### Compare Teams (`/compare-teams`)
+Compare statistics side-by-side between two NHL teams.
+
+## Development Notes
+
+- Fast Refresh is enabled for quick hot module reloading during development
+- Strict TypeScript checking is enabled for type safety
+- ESLint enforces React Hooks and React Refresh best practices
+
+## Future Improvements
+
+- [ ] Implement SingleTeam page with statistics display
+- [ ] Implement CompareTeams page with comparison visualizations
+- [ ] Build out chart components for data visualization
+- [ ] Add advanced filtering and sorting options
+- [ ] Expand metrics and analysis capabilities
