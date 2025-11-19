@@ -48,11 +48,11 @@ export default function Home() {
                 Analyze Individual Teams
               </h3>
               <p className="text-gray-300 mb-4">
-                Dive deep into team statistics with daily trends, league
-                averages, and season-long performance metrics.
+                Dive deep into team statistics with interactive charts, daily trends, league
+                averages, and season-long performance metrics across offensive and defensive play.
               </p>
               <div className="text-sm text-blue-400 font-semibold">
-                Key Metrics: GF, xGF, SCF, PDO
+                ✓ Offensive & Defensive Stats | ✓ Visual Charts | ✓ League Averages
               </div>
               <Link
                 to="/single-team"
@@ -67,11 +67,12 @@ export default function Home() {
               <div className="text-4xl mb-4">⚖️</div>
               <h3 className="text-xl font-bold mb-3">Compare Teams</h3>
               <p className="text-gray-300 mb-4">
-                Side-by-side comparison of two NHL teams across all key metrics
-                to identify relative strengths and weaknesses.
+                Side-by-side comparison of two NHL teams with interactive charts,
+                visual analytics, and comprehensive metrics to identify relative
+                strengths and weaknesses.
               </p>
               <div className="text-sm text-blue-400 font-semibold">
-                Strength Modes: 5v5 & All Strength
+                ✓ Dual Charts | ✓ League Averages | ✓ 5v5 & All Strength
               </div>
               <Link
                 to="/compare-teams"
@@ -109,31 +110,31 @@ export default function Home() {
               <div className="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 1
               </div>
-              <h3 className="font-semibold mb-2">Select Team</h3>
-              <p className="text-gray-400 text-sm">Choose from 32 NHL teams</p>
+              <h3 className="font-semibold mb-2">Select Team(s)</h3>
+              <p className="text-gray-400 text-sm">Pick one team or compare two from 32 NHL teams</p>
             </div>
             <div className="text-center">
               <div className="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 2
               </div>
-              <h3 className="font-semibold mb-2">Choose Metrics</h3>
+              <h3 className="font-semibold mb-2">Choose Analysis Type</h3>
               <p className="text-gray-400 text-sm">
-                Offensive or Defensive stats
+                Offensive, Defensive, or comparative stats
               </p>
             </div>
             <div className="text-center">
               <div className="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 3
               </div>
-              <h3 className="font-semibold mb-2">Select Strength</h3>
-              <p className="text-gray-400 text-sm">5v5 or All Strength play</p>
+              <h3 className="font-semibold mb-2">Select Play Mode</h3>
+              <p className="text-gray-400 text-sm">5v5 Even Strength or All Strength</p>
             </div>
             <div className="text-center">
               <div className="bg-blue-600 rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold mx-auto mb-4">
                 4
               </div>
-              <h3 className="font-semibold mb-2">Analyze Results</h3>
-              <p className="text-gray-400 text-sm">View trends & insights</p>
+              <h3 className="font-semibold mb-2">View Analytics</h3>
+              <p className="text-gray-400 text-sm">Interactive charts, trends & detailed stats</p>
             </div>
           </div>
         </div>
@@ -266,10 +267,10 @@ export default function Home() {
 
       {/* Final CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <h2 className="text-4xl font-bold mb-8">Ready to Analyze?</h2>
+        <h2 className="text-4xl font-bold mb-8">Ready to Explore NHL Analytics?</h2>
         <p className="text-xl text-gray-300 mb-12">
-          Start exploring NHL team statistics and gain competitive insights
-          today.
+          Choose your analysis path: deep dive into individual team performance,
+          or compare two teams side-by-side with advanced statistics and interactive charts.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link

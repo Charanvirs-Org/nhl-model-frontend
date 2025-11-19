@@ -1,4 +1,4 @@
-export const API_BASE_URL = import.meta.env.RAILWAY_BACKEND_URL;
+export const API_BASE_URL = import.meta.env.VITE_RAILWAY_BACKEND_URL;
 
 // API Endpoints
 export const ENDPOINTS = {
