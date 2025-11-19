@@ -1,43 +1,7 @@
 import { useState } from "react";
 import type { SingleTeamFormProps } from "../../types/SingleTeam.type";
-
-const NHL_TEAMS = [
-  "Anaheim Ducks",
-  "Boston Bruins",
-  "Buffalo Sabres",
-  "Calgary Flames",
-  "Carolina Hurricanes",
-  "Chicago Blackhawks",
-  "Colorado Avalanche",
-  "Columbus Blue Jackets",
-  "Dallas Stars",
-  "Detroit Red Wings",
-  "Edmonton Oilers",
-  "Florida Panthers",
-  "Los Angeles Kings",
-  "Minnesota Wild",
-  "Montreal Canadiens",
-  "Nashville Predators",
-  "New Jersey Devils",
-  "New York Islanders",
-  "New York Rangers",
-  "Ottawa Senators",
-  "Philadelphia Flyers",
-  "Pittsburgh Penguins",
-  "San Jose Sharks",
-  "Seattle Kraken",
-  "St. Louis Blues",
-  "Tampa Bay Lightning",
-  "Toronto Maple Leafs",
-  "Utah Mammoth",
-  "Vancouver Canucks",
-  "Vegas Golden Knights",
-  "Washington Capitals",
-  "Winnipeg Jets",
-];
-
-const STAT_TYPES = ["Offensive", "Defensive"];
-const SCENARIOS = ["5 vs 5", "All Strength"];
+import { NHL_TEAMS } from "../../resources/teams";
+import { STAT_TYPES, SCENARIOS } from "../../resources/params";
 
 export function SingleTeamForm({ onSubmit }: SingleTeamFormProps) {
   const [teamName, setTeamName] = useState("");

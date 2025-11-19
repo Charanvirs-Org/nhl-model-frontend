@@ -28,3 +28,7 @@ export interface CompareTeamProcessParams {
   season_average: number[];
   time_series_stats: number[][];
 }
+
+export interface TwoTeamFormProps {
+  onSubmit: (data: CompareTeamRequest) => void;
+}
