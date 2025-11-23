@@ -12,7 +12,7 @@ export function CompareTeamChart({ chartConfigs }: CompareTeamChartProps) {
       {chartConfigs.map((chartConfig: CompareChartConfig, index: number) => (
         <div
           key={index}
-          className="border m-1"
+          className="bg-slate-800 border border-slate-700 m-1 rounded-lg p-4"
           style={{ marginBottom: "2rem" }}
         >
           <Chart
