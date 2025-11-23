@@ -76,7 +76,7 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
       <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-6">
         {/* Team One Dropdown */}
         <div className="flex flex-col gap-2" ref={teamOneRef}>
-          <label className="text-sm font-semibold text-gray-700">
+          <label className="text-sm font-semibold text-gray-300">
             Team One
           </label>
           <div className="relative">
@@ -85,13 +85,13 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
               onClick={() =>
                 setOpenDropdown(openDropdown === "teamOne" ? null : "teamOne")
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg text-left bg-white text-gray-900 font-medium transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between"
+              className="w-full px-4 py-2 border border-slate-600 rounded-lg text-left bg-slate-700 text-white font-medium transition-all duration-200 hover:border-slate-500 hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between"
             >
-              <span className={teamOneName ? "text-gray-900" : "text-gray-400"}>
+              <span className={teamOneName ? "text-white" : "text-gray-400"}>
                 {teamOneName || "Select a team"}
               </span>
               <svg
-                className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
+                className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
                   openDropdown === "teamOne" ? "transform rotate-180" : ""
                 }`}
                 fill="none"
@@ -108,7 +108,7 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
             </button>
 
             {openDropdown === "teamOne" && (
-              <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+              <div className="absolute z-50 w-full mt-1 bg-slate-700 border border-slate-600 rounded-lg shadow-lg">
                 <div className="max-h-60 overflow-y-auto">
                   {NHL_TEAMS.map((team) => (
                     <button
@@ -117,8 +117,8 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
                       onClick={() => handleTeamOneChange(team)}
                       className={`w-full px-4 py-2 text-left text-sm font-medium transition-colors duration-150 ${
                         teamOneName === team
-                          ? "bg-blue-500 text-white"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-blue-600 text-white"
+                          : "text-gray-200 hover:bg-slate-600"
                       }`}
                     >
                       {team}
@@ -132,7 +132,7 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
 
         {/* Team Two Dropdown */}
         <div className="flex flex-col gap-2" ref={teamTwoRef}>
-          <label className="text-sm font-semibold text-gray-700">
+          <label className="text-sm font-semibold text-gray-300">
             Team Two
           </label>
           <div className="relative">
@@ -141,13 +141,13 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
               onClick={() =>
                 setOpenDropdown(openDropdown === "teamTwo" ? null : "teamTwo")
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg text-left bg-white text-gray-900 font-medium transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between"
+              className="w-full px-4 py-2 border border-slate-600 rounded-lg text-left bg-slate-700 text-white font-medium transition-all duration-200 hover:border-slate-500 hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between"
             >
-              <span className={teamTwoName ? "text-gray-900" : "text-gray-400"}>
+              <span className={teamTwoName ? "text-white" : "text-gray-400"}>
                 {teamTwoName || "Select a team"}
               </span>
               <svg
-                className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
+                className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
                   openDropdown === "teamTwo" ? "transform rotate-180" : ""
                 }`}
                 fill="none"
@@ -164,7 +164,7 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
             </button>
 
             {openDropdown === "teamTwo" && (
-              <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+              <div className="absolute z-50 w-full mt-1 bg-slate-700 border border-slate-600 rounded-lg shadow-lg">
                 <div className="max-h-60 overflow-y-auto">
                   {NHL_TEAMS.map((team) => (
                     <button
@@ -173,8 +173,8 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
                       onClick={() => handleTeamTwoChange(team)}
                       className={`w-full px-4 py-2 text-left text-sm font-medium transition-colors duration-150 ${
                         teamTwoName === team
-                          ? "bg-blue-500 text-white"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-blue-600 text-white"
+                          : "text-gray-200 hover:bg-slate-600"
                       }`}
                     >
                       {team}
@@ -188,7 +188,7 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
 
         {/* Scenario Dropdown */}
         <div className="flex flex-col gap-2" ref={scenarioRef}>
-          <label className="text-sm font-semibold text-gray-700">
+          <label className="text-sm font-semibold text-gray-300">
             Scenario
           </label>
           <div className="relative">
@@ -199,13 +199,13 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
                   openDropdown === "scenario" ? null : "scenario"
                 )
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg text-left bg-white text-gray-900 font-medium transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between"
+              className="w-full px-4 py-2 border border-slate-600 rounded-lg text-left bg-slate-700 text-white font-medium transition-all duration-200 hover:border-slate-500 hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent flex items-center justify-between"
             >
-              <span className={scenario ? "text-gray-900" : "text-gray-400"}>
+              <span className={scenario ? "text-white" : "text-gray-400"}>
                 {scenario || "Select a scenario"}
               </span>
               <svg
-                className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
+                className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
                   openDropdown === "scenario" ? "transform rotate-180" : ""
                 }`}
                 fill="none"
@@ -222,7 +222,7 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
             </button>
 
             {openDropdown === "scenario" && (
-              <div className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+              <div className="absolute z-50 w-full mt-1 bg-slate-700 border border-slate-600 rounded-lg shadow-lg">
                 <div className="max-h-60 overflow-y-auto">
                   {SCENARIOS.map((scen) => (
                     <button
@@ -231,8 +231,8 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
                       onClick={() => handleScenarioChange(scen)}
                       className={`w-full px-4 py-2 text-left text-sm font-medium transition-colors duration-150 ${
                         scenario === scen
-                          ? "bg-blue-500 text-white"
-                          : "text-gray-700 hover:bg-gray-100"
+                          ? "bg-blue-600 text-white"
+                          : "text-gray-200 hover:bg-slate-600"
                       }`}
                     >
                       {scen}
@@ -247,13 +247,13 @@ export function TwoTeamForm({ onSubmit }: TwoTeamFormProps) {
         <button
           type="submit"
           disabled={!teamOneName || !teamTwoName || !scenario}
-          className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:bg-slate-600 disabled:cursor-not-allowed transition-colors"
         >
           Submit
         </button>
       </form>
       {(errorMessage || teamOneName === teamTwoName) && (
-        <div>{errorMessage}</div>
+        <div className="text-red-500 text-sm p-4 text-center">{errorMessage}</div>
       )}
     </div>
   );

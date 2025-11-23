@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { PasswordProtectionProps } from "../../types/password.type";
-import { STORAGE_KEY, SITE_PASSWORD } from "../../utils/passwordUtils";
+import { STORAGE_KEY, SITE_PASSWORD, registerUnlockedSetter } from "../../utils/passwordUtils";
 import { encryptPassword, decryptPassword } from "../../utils/passwordUtils";
 
 export function PasswordProtection({ children }: PasswordProtectionProps) {
@@ -20,6 +20,10 @@ export function PasswordProtection({ children }: PasswordProtectionProps) {
   const [inputPassword, setInputPassword] = useState("");
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    registerUnlockedSetter(setIsUnlocked);
+  }, []);
+
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -27,6 +31,7 @@ export function PasswordProtection({ children }: PasswordProtectionProps) {
     if (inputPassword === SITE_PASSWORD) {
       const encryptedPassword = encryptPassword(SITE_PASSWORD);
       localStorage.setItem(STORAGE_KEY, encryptedPassword);
+      setInputPassword("");
       setIsUnlocked(true);
     } else {
       setError("Incorrect password. Please try again.");
