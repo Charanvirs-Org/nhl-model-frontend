@@ -5,6 +5,14 @@ export const SITE_PASSWORD = import.meta.env.VITE_PASSWORD;
 export const ENCRYPTION_KEY =
   import.meta.env.VITE_ENCRYPTION_KEY || "default-secret-key";
 
+let setIsUnlockedCallback: ((value: boolean) => void) | null = null;
+
+export const registerUnlockedSetter = (
+  callback: (value: boolean) => void
+): void => {
+  setIsUnlockedCallback = callback;
+};
+
 export const encryptPassword = (password: string): string => {
   return CryptoJS.AES.encrypt(password, ENCRYPTION_KEY).toString();
 };
@@ -12,4 +20,11 @@ export const encryptPassword = (password: string): string => {
 export const decryptPassword = (encryptedPassword: string): string => {
   const decrypted = CryptoJS.AES.decrypt(encryptedPassword, ENCRYPTION_KEY);
   return decrypted.toString(CryptoJS.enc.Utf8);
+};
+
+export const logout = (): void => {
+  localStorage.removeItem(STORAGE_KEY);
+  if (setIsUnlockedCallback) {
+    setIsUnlockedCallback(false);
+  }
 };

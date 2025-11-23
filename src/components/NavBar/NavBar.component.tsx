@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { logout } from "../../utils/passwordUtils";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +51,9 @@ export default function NavBar() {
               <Link to="/compare-teams" className={linkClass("/compare-teams")}>
                 Compare Teams
               </Link>
+              <button onClick={logout} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-red-400 hover:text-white hover:bg-red-700">
+                Logout
+              </button>
             </div>
           </div>
 
@@ -108,11 +112,22 @@ export default function NavBar() {
             </Link>
             <Link
               to="/compare-teams"
-              className={`block ${linkClass("/compare-teams")} w-full text-left`}
+              className={`block ${linkClass(
+                "/compare-teams"
+              )} w-full text-left`}
               onClick={closeMenu}
             >
               Compare Teams
             </Link>
+            <button
+              onClick={() => {
+                logout();
+                closeMenu();
+              }}
+              className="block px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-red-400 hover:text-white hover:bg-red-700 w-full text-left"
+            >
+              Logout
+            </button>
           </div>
         </div>
       )}
